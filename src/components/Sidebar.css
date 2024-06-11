@@ -1,0 +1,62 @@
+.sidebar {
+  width: 60px; /* Set initial width for closed sidebar */
+  background-color: #f4f4f4;
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+  height: 799.65px;
+}
+
+.sidebar.open {
+  width: 200px; /* Set expanded width for open sidebar */
+}
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #007bff;
+  margin-left: 10rem;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar-menu-item {
+  color: #007bff;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.sidebar-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-icon {
+  font-size: 24px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+/* Add margin between icons */
+.sidebar-icons li {
+  margin-bottom: 10px;
+}
+
+/* Add hover effect to icons */
+.sidebar-icon:hover {
+  color: black;
+}
