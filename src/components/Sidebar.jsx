@@ -30,12 +30,12 @@ const Sidebar = ({ onMenuItemClick }) => {
             >
               Current Content
             </li>
-            <li
+            {/* <li
               className="sidebar-menu-item"
               onClick={() => onMenuItemClick("Scanner")} // Call onMenuItemClick with "Scanner" as argument
             >
               Scanner
-            </li>
+            </li> */}
             {/* <li
               className="sidebar-menu-item"
               onClick={() => onMenuItemClick("Uploads")} // Call onMenuItemClick with "Scanner" as argument
@@ -48,12 +48,12 @@ const Sidebar = ({ onMenuItemClick }) => {
             >
               Generator
             </li>
-            <li
+            {/* <li
               className="sidebar-menu-item"
               onClick={() => onMenuItemClick("Uploader")}
             >
               Uploader
-            </li>
+            </li> */}
             <li
               className="sidebar-menu-item"
               onClick={() => onMenuItemClick("Content")}
