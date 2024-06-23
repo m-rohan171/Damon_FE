@@ -1,30 +1,39 @@
+/* Existing CSS for the sidebar and icons */
+
 .sidebar {
-  width: 60px; /* Set initial width for closed sidebar */
-  background-color: #f4f4f4;
+  width: 6%; /* Set initial width for closed sidebar */
+  background-color: white;
   transition: width 0.3s ease;
   overflow-x: hidden;
-  height: 799.65px;
+  height: 47rem;
 }
 
 .sidebar.open {
-  width: 200px; /* Set expanded width for open sidebar */
+  width: 15%; /* Set expanded width for open sidebar */
+  background-color: white;
 }
 
 .sidebar-toggle {
-  background: none;
-  border: none;
+  background-color: rgb(117, 117, 117);
+  color: white;
   cursor: pointer;
-  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #007bff;
-  margin-left: 10rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-toggle:hover {
+  background-color: rgb(243, 181, 98);
+  color: white;
 }
 
 .sidebar-content {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .sidebar-menu {
@@ -33,7 +42,7 @@
 }
 
 .sidebar-menu-item {
-  color: #007bff;
+  color: rgb(243, 181, 98);
   margin-bottom: 10px;
   cursor: pointer;
 }
@@ -45,18 +54,44 @@
 }
 
 .sidebar-icon {
-  font-size: 24px;
+  font-size: 2rem;
   margin-top: 40px;
   margin-bottom: 20px;
-  color: #007bff;
+  color: rgb(243, 181, 98);
+  position: relative;
+}
+
+/* Tooltip container */
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: 100%; /* Position above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  background-color: rgb(117, 117, 117);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.sidebar-icon:hover .tooltip {
+  display: block;
+}
+
+.sidebar-icon:hover {
+  color: rgb(117, 117, 117);
+}
+
+.sidebar-icon:hover .tooltip::after {
+  content: attr(data-tooltip);
 }
 
 /* Add margin between icons */
 .sidebar-icons li {
   margin-bottom: 10px;
-}
-
-/* Add hover effect to icons */
-.sidebar-icon:hover {
-  color: black;
 }

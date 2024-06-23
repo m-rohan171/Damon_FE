@@ -1,9 +1,50 @@
-.header {
-  background-color: #007bff;
-  padding: 10px 20px;
+.navbar {
+  width: 100%;
+  background-color: rgb(243, 181, 98);
+  /* padding: 1rem; */
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.header-title {
+.navbar button {
+  width: 10%;
+  float: right;
+  /* align-items: center; */
+  padding: 1rem;
+  margin-right: 1rem;
+  background-color: rgb(117, 117, 117);
   color: white;
-  margin: 0;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.navbar button:hover {
+  background-color: white;
+  color: rgb(243, 181, 98);
+}
+
+.active {
+  background-color: rgb(243, 181, 98);
+}
+
+.logoDiv {
+  width: 20%;
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.logo {
+  width: 20%;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar button {
+    float: none;
+    display: block;
+  }
 }

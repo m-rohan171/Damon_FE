@@ -1,27 +1,49 @@
 .qr-code-generator-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
+  justify-content: center;
   margin-top: 20px;
 }
 
+.generator-containers {
+  width: 40%;
+  margin-top: 2rem;
+  /* border: 1px solid red; */
+  overflow: hidden;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
 .qr-code-generator-input {
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 2rem;
+  /* padding: 10px; */
   font-size: 16px;
-  border: 2px solid #007bff;
-  border-radius: 5px;
+  /* border-style: none; */
+  /* border: 2px solid rgb(243, 181, 98); */
+  /* border-radius: 10rem; */
+  /* width: 10%; */
 }
 
 .qr-code-generator-button {
+  width: 40%;
+  margin-top: 2rem;
   margin-bottom: 10px;
   padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
+  font-size: 1rem;
+  background-color: rgb(243, 181, 98);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.qr-code-generator-button:hover {
+  background-color: white;
+  color: rgb(243, 181, 98);
 }
 
 .qr-code {

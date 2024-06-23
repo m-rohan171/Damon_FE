@@ -1,0 +1,31 @@
+.qr-code-uploader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.qr-code-uploader-input {
+  display: none; /* Hide the actual file input */
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: rgb(243, 181, 98);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.custom-file-upload:hover {
+  background-color: white;
+  color: rgb(117, 117, 117);
+}
+
+.qr-code-uploader-error {
+  color: red;
+  font-size: 14px;
+}

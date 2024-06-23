@@ -2,25 +2,18 @@ import React, { useState } from "react";
 import QRCode from "qrcode.react";
 import axios from "axios";
 import "./QRCodeGenerator.css";
-import { BaseUrl } from "../shared/BaseUrl";
-import { useSelector } from "react-redux";
 
-const QRCodeGenerator = () => {
+const Uploads = () => {
   const [text, setText] = useState("");
-  const [qrText, setQrText] = useState("");
   const [qrCodeURL, setQRCodeURL] = useState("");
-  const token = useSelector((state) => state.auth.token);
 
   const handleGenerate = async () => {
     try {
       const response = await axios.post(
-        `${BaseUrl}/api/qrcode/qrcode`,
-        { text }, // Payload
-        { headers: { Authorization: `Bearer ${token}` } } // Headers with Authorization
+        "http://localhost:5000/api/qrcode/qrcode",
+        { text }
       );
-      console.log({ response });
       setQRCodeURL(response.data.qrCodeURL);
-      setQrText(response.data.text);
     } catch (error) {
       console.error("Error generating QR code", error);
     }
@@ -44,7 +37,7 @@ const QRCodeGenerator = () => {
         </button>
         {qrCodeURL && (
           <div className="qr-code-image-container">
-            {<QRCode className="qr-code" value={qrText} />}
+            {<QRCode className="qr-code" value={qrCodeURL} />}
           </div>
         )}
       </div>
@@ -52,4 +45,4 @@ const QRCodeGenerator = () => {
   );
 };
 
-export default QRCodeGenerator;
+export default Uploads;
