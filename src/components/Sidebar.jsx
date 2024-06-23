@@ -1,5 +1,14 @@
 import React, { useState } from "react";
-import { FaBars, FaTimes, FaUpload, FaQrcode, FaCamera } from "react-icons/fa"; // Import icons from react-icons library
+import {
+  FaBars,
+  FaTimes,
+  FaUpload,
+  FaQrcode,
+  FaCamera,
+  FaRegEdit,
+} from "react-icons/fa"; // Import icons from react-icons library
+import { TfiDashboard } from "react-icons/tfi";
+import { MdContentCopy } from "react-icons/md";
 import "./Sidebar.css";
 
 const Sidebar = ({ onMenuItemClick }) => {
@@ -65,11 +74,19 @@ const Sidebar = ({ onMenuItemClick }) => {
           <div className="sidebar-icons">
             <div
               className="sidebar-icon"
-              data-tooltip="Scanner"
-              onClick={() => onMenuItemClick("Scanner")}
+              data-tooltip="Dashboard"
+              onClick={() => onMenuItemClick("Dashboard")}
             >
-              <FaCamera />
-              <div className="tooltip">Scanner</div>
+              <TfiDashboard />
+              <div className="tooltip">Dashboard</div>
+            </div>
+            <div
+              className="sidebar-icon"
+              data-tooltip="CurrentContent"
+              onClick={() => onMenuItemClick("CurrentContent")}
+            >
+              <FaRegEdit />
+              <div className="tooltip">CurrentContent</div>
             </div>
             <div
               className="sidebar-icon"
@@ -81,11 +98,11 @@ const Sidebar = ({ onMenuItemClick }) => {
             </div>
             <div
               className="sidebar-icon"
-              data-tooltip="Uploader"
-              onClick={() => onMenuItemClick("Uploader")}
+              data-tooltip="Content"
+              onClick={() => onMenuItemClick("Content")}
             >
-              <FaUpload />
-              <div className="tooltip">Uploader</div>
+              <MdContentCopy />
+              <div className="tooltip">Create Content form</div>
             </div>
           </div>
         )}
