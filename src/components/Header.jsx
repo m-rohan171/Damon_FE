@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import Button from "../Utils/Buttons/Button";
+// import Button from "../Utils/Buttons/Button";
 import { useNavigate } from "react-router-dom";
 import Logo from "../image/tattQr.png";
 
@@ -8,6 +8,7 @@ const Header = () => {
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
+      localStorage.removeItem("token");
       navigate("./login");
     } catch (error) {
       console.log("error is", error);

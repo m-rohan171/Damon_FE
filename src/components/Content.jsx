@@ -4,6 +4,7 @@ import axios from "axios";
 import "./QRCodeGenerator.css";
 import { useSelector } from "react-redux";
 import { BaseUrl } from "../shared/BaseUrl";
+import { toast } from "react-toastify";
 const QRCodeGenerator = () => {
   const [text, setText] = useState("");
   const [file, setFile] = useState(null);
@@ -49,6 +50,15 @@ const QRCodeGenerator = () => {
           params: data, // Send text and qrCodeId as URL params or query params (optional)
         }
       );
+      toast.success(response.data.message, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       console.log({ response });
     } catch (error) {
       console.error("Error generating QR code", error);
@@ -58,6 +68,8 @@ const QRCodeGenerator = () => {
   return (
     <div className="qr-code-generator-container">
       <div className="generator-containers">
+        Upload content
+        <br />
         <input
           style={{
             borderRadius: "2rem",
@@ -76,7 +88,7 @@ const QRCodeGenerator = () => {
           disabled={text !== ""} // Disable file input if text is entered
         />
         <button className="qr-code-generator-button" onClick={handleGenerate}>
-          Generate
+          Save
         </button>
       </div>
     </div>

@@ -55,3 +55,38 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 999px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    height: auto;
+  }
+  .content-container {
+    flex-direction: column;
+  }
+  .sidebar-menu {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .sidebar-icons {
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .sidebar-icon,
+  .sidebar-menu-item {
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+  }
+  .sidebar-content {
+    display: flex;
+  }
+  /* .sidebar-toggle {
+    width: 20%;
+  } */
+}

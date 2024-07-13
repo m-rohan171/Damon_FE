@@ -12,6 +12,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@zxing/library": "^0.21.0",
+    "ajv": "^8.16.0",
     "antd": "^5.18.2",
     "axios": "^1.7.2",
     "qrcode.react": "^3.1.0",
@@ -55,7 +56,6 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
   "author": "",
   "license": "ISC"
 }

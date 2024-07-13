@@ -8,6 +8,7 @@ import {
   FaRegEdit,
 } from "react-icons/fa"; // Import icons from react-icons library
 import { TfiDashboard } from "react-icons/tfi";
+import { IoMdQrScanner } from "react-icons/io";
 import { MdContentCopy } from "react-icons/md";
 import "./Sidebar.css";
 
@@ -20,7 +21,7 @@ const Sidebar = ({ onMenuItemClick }) => {
   };
 
   return (
-    <div className={`sidebar ${isOpen ? "open" : ""}`}>
+    <div className={`sidebar ${isOpen ? "open" : "close"}`}>
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
@@ -33,18 +34,21 @@ const Sidebar = ({ onMenuItemClick }) => {
             >
               Dashboard
             </li>
+            {/* <hr></hr> */}
+            {/* <span className="space"></span> */}
             <li
               className="sidebar-menu-item"
               onClick={() => onMenuItemClick("CurrentContent")} // Call onMenuItemClick with "Scanner" as argument
             >
               Current Content
             </li>
-            {/* <li
+            {/* <hr style={{ marginRight: "2rem" }}></hr> */}
+            <li
               className="sidebar-menu-item"
               onClick={() => onMenuItemClick("Scanner")} // Call onMenuItemClick with "Scanner" as argument
             >
               Scanner
-            </li> */}
+            </li>
             {/* <li
               className="sidebar-menu-item"
               onClick={() => onMenuItemClick("Uploads")} // Call onMenuItemClick with "Scanner" as argument
@@ -67,7 +71,7 @@ const Sidebar = ({ onMenuItemClick }) => {
               className="sidebar-menu-item"
               onClick={() => onMenuItemClick("Content")}
             >
-              CreateContentForm
+              Create Content
             </li>
           </ul>
         ) : (
@@ -90,6 +94,14 @@ const Sidebar = ({ onMenuItemClick }) => {
             </div>
             <div
               className="sidebar-icon"
+              data-tooltip="Scanner"
+              onClick={() => onMenuItemClick("Scanner")}
+            >
+              <IoMdQrScanner />
+              <div className="tooltip">Scanner</div>
+            </div>
+            <div
+              className="sidebar-icon"
               data-tooltip="Generator"
               onClick={() => onMenuItemClick("Generator")}
             >
@@ -102,7 +114,7 @@ const Sidebar = ({ onMenuItemClick }) => {
               onClick={() => onMenuItemClick("Content")}
             >
               <MdContentCopy />
-              <div className="tooltip">Create Content form</div>
+              <div className="tooltip">Create Content</div>
             </div>
           </div>
         )}

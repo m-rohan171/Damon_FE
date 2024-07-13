@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { BaseUrl } from "../shared/BaseUrl";
 import QRCode from "qrcode.react";
+import { toast } from "react-toastify";
 
 const { Content } = Layout;
 
@@ -14,13 +15,22 @@ export const Dashboard = () => {
   const [loading, setLoading] = useState(true); // State to manage loading spinner
   const [currentContentId, setCurrentContentId] = useState(null); // State to store current content id
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const token = useSelector((state) => state.auth.token);
+  const token = localStorage.getItem("token");
 
   useLayoutEffect(() => {
     const fetchQr = async () => {
       try {
         const response = await axios.get(`${BaseUrl}/api/qrcode/user/qr`, {
           headers: { Authorization: `Bearer ${token}` },
+        });
+        toast.success(response.data.message, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
         });
         setQRCodeURL(response.data.text);
         setQrId(response.data._id);
@@ -77,6 +87,15 @@ export const Dashboard = () => {
         headers: { Authorization: `Bearer ${token}` },
       }
     );
+    toast.success(response.data.message, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
     setIsModalOpen(false);
   };
 

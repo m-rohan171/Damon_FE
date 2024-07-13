@@ -1,21 +1,25 @@
-import React, { useState } from "react";
-// import Header from "../components/Header";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import QRCodeScanner from "../components/QRCodeScanner";
 import QRCodeGenerator from "../components/QRCodeGenerator";
-import QRCodeUploader from "../components/QRCodeUploader"; // Import QRCodeUploader component
-
+import QRCodeUploader from "../components/QRCodeUploader";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import "./Main.css";
 import { Dashboard } from "../components/Dashboard";
-import Uploads from "../components/Uploads";
 import CreateContentForm from "../components/Content";
 import { CurrentContent } from "../components/CurrentContent";
-// import Footer from "./components/Footer";
 
 const Main = () => {
   const [scannedData, setScannedData] = useState("");
-  const [selectedMenuItem, setSelectedMenuItem] = useState("CurrentContent");
+  const [selectedMenuItem, setSelectedMenuItem] = useState("");
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const userId = searchParams.get("un");
+
+  useEffect(() => {
+    setSelectedMenuItem(userId ? "CurrentContent" : "Generator");
+  }, [userId]);
 
   const handleScan = async (data) => {
     console.log({ data });
@@ -43,14 +47,17 @@ const Main = () => {
     }
   };
 
+  // Render only CurrentContent if userId is present
+  if (userId) {
+    return <CurrentContent />;
+  }
+
   return (
     <div className="app-container">
-      {/* <Header /> */}
       <div className="content-container">
-        <Sidebar onMenuItemClick={handleMenuItemClick} />{" "}
-        {/* Pass the handleMenuItemClick function as a prop */}
+        <Sidebar onMenuItemClick={handleMenuItemClick} />
         <main className="main-content">
-          {(selectedMenuItem === "Scanner" || selectedMenuItem === "") && ( // Conditionally render the QRCodeScanner component
+          {(selectedMenuItem === "Scanner" || selectedMenuItem === "") && (
             <>
               <h2 className="main-heading">Scanner</h2>
               <QRCodeScanner onScan={handleScan} />
@@ -71,14 +78,13 @@ const Main = () => {
               )}
             </>
           )}
-          {selectedMenuItem === "Generator" && ( // Conditionally render the QRCodeGenerator component
+          {selectedMenuItem === "Generator" && (
             <>
               <h2 className="main-heading">Generator</h2>
               <QRCodeGenerator />
             </>
           )}
-          {/* {selectedMenuItem === "Uploads" && <Uploads />} */}
-          {selectedMenuItem === "Uploader" && ( // Conditionally render the QRCodeUploader component
+          {selectedMenuItem === "Uploader" && (
             <>
               <h2 className="main-heading">Uploader</h2>
               <QRCodeUploader onScan={handleUploadScan} />
@@ -98,7 +104,6 @@ const Main = () => {
           {selectedMenuItem === "Content" && <CreateContentForm />}
         </main>
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };
